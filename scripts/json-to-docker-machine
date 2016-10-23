@@ -8,18 +8,18 @@ certsDir="$HOME/.docker/machine/certs"
 machineConfigDir="$HOME/.docker/machine/machines/$machineName"
 
 mkdir -p $certsDir
-echo $input | jq -r '.source.ca_key_pem' >$certsDir/ca-key.pem
-echo $input | jq -r '.source.ca_pem' >$certsDir/ca.pem
-echo $input | jq -r '.source.ca_pem' >$certsDir/ca.pem
-echo $input | jq -r '.source.cert_pem' >$certsDir/cert.pem
-echo $input | jq -r '.source.key_pem' >$certsDir/key.pem
+echo $input | jq -r '.ca_key_pem' >$certsDir/ca-key.pem
+echo $input | jq -r '.ca_pem' >$certsDir/ca.pem
+echo $input | jq -r '.ca_pem' >$certsDir/ca.pem
+echo $input | jq -r '.cert_pem' >$certsDir/cert.pem
+echo $input | jq -r '.key_pem' >$certsDir/key.pem
 
 mkdir -p $machineConfigDir
-echo $input | jq -r '.source.ca_pem' >$machineConfigDir/ca.pem
-echo $input | jq -r '.source.cert_pem' >$machineConfigDir/cert.pem
-echo $input | jq -r '.source.config' >$machineConfigDir/config.json
-echo $input | jq -r '.source.id_rsa' >$machineConfigDir/id_rsa
-echo $input | jq -r '.source.id_rsa_pub' >$machineConfigDir/id_rsa.pub
-echo $input | jq -r '.source.key_pem' >$machineConfigDir/key.pem
-echo $input | jq -r '.source.server_key_pem' >$machineConfigDir/server-key.pem
-echo $input | jq -r '.source.server_pem' >$machineConfigDir/server.pem
+echo $input | jq -r '.ca_pem' >$machineConfigDir/ca.pem
+echo $input | jq -r '.cert_pem' >$machineConfigDir/cert.pem
+echo $input | jq -r '.config' >$machineConfigDir/config.json
+echo $input | jq -r '.id_rsa' >$machineConfigDir/id_rsa
+echo $input | jq -r '.id_rsa_pub' >$machineConfigDir/id_rsa.pub
+echo $input | jq -r '.key_pem' >$machineConfigDir/key.pem
+echo $input | jq -r '.server_key_pem' >$machineConfigDir/server-key.pem
+echo $input | jq -r '.server_pem' >$machineConfigDir/server.pem
