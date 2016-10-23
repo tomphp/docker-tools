@@ -21,3 +21,6 @@ RUN curl -L "https://github.com/docker/machine/releases/download/v0.8.2/docker-m
 # Install docker compose
 RUN curl -L "https://github.com/docker/compose/releases/download/1.8.1/docker-compose-$(uname -s)-$(uname -m)" >/usr/local/bin/docker-compose \
     && chmod +x /usr/local/bin/docker-compose
+
+ADD scripts/json-to-docker-machine /usr/local/bin/
+RUN chmod a+x /usr/local/bin/json-to-docker-machine
