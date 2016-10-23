@@ -2,7 +2,7 @@
 
 input=`cat`
 
-machineName=$(echo $input | jq -r '.source.machine_name')
+machineName=$(echo $input | jq -r '.machine_name')
 
 certsDir="$HOME/.docker/machine/certs"
 machineConfigDir="$HOME/.docker/machine/machines/$machineName"
