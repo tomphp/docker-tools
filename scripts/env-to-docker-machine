@@ -1,4 +1,4 @@
-#!/bin/bash -ev
+#!/bin/bash -ex
 
 machineName=$DOCKER_MACHINE_NAME
 
