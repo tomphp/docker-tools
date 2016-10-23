@@ -24,3 +24,6 @@ RUN curl -L "https://github.com/docker/compose/releases/download/1.8.1/docker-co
 
 ADD scripts/json-to-docker-machine /usr/local/bin/
 RUN chmod a+x /usr/local/bin/json-to-docker-machine
+
+ADD scripts/env-to-docker-machine /usr/local/bin/
+RUN chmod a+x /usr/local/bin/env-to-docker-machine
