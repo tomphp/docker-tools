@@ -6,18 +6,18 @@ certsDir="$HOME/.docker/machine/certs"
 machineConfigDir="$HOME/.docker/machine/machines/$machineName"
 
 mkdir -p $certsDir
-echo $DOCKER_MACHINE_CA_KEY_PEM | sed 's/ /\n/g' >$certsDir/ca-key.pem
-echo $DOCKER_MACHINE_CA_PEM | sed 's/ /\n/g' >$certsDir/ca.pem
-echo $DOCKER_MACHINE_CA_PEM | sed 's/ /\n/g' >$certsDir/ca.pem
-echo $DOCKER_MACHINE_CERT_PEM | sed 's/ /\n/g' >$certsDir/cert.pem
-echo $DOCKER_MACHINE_KEY_PEM | sed 's/ /\n/g' >$certsDir/key.pem
+echo -e $DOCKER_MACHINE_CA_KEY_PEM >$certsDir/ca-key.pem
+echo -e $DOCKER_MACHINE_CA_PEM >$certsDir/ca.pem
+echo -e $DOCKER_MACHINE_CA_PEM >$certsDir/ca.pem
+echo -e $DOCKER_MACHINE_CERT_PEM >$certsDir/cert.pem
+echo -e $DOCKER_MACHINE_KEY_PEM >$certsDir/key.pem
 
 mkdir -p $machineConfigDir
-echo $DOCKER_MACHINE_CA_PEM | sed 's/ /\n/g' >$machineConfigDir/ca.pem
-echo $DOCKER_MACHINE_CERT_PEM | sed 's/ /\n/g' >$machineConfigDir/cert.pem
-echo $DOCKER_MACHINE_CONFIG >$machineConfigDir/config.json
-echo $DOCKER_MACHINE_ID_RSA | sed 's/ /\n/g' >$machineConfigDir/id_rsa
-echo $DOCKER_MACHINE_ID_RSA_PUB >$machineConfigDir/id_rsa.pub
-echo $DOCKER_MACHINE_KEY_PEM | sed 's/ /\n/g' >$machineConfigDir/key.pem
-echo $DOCKER_MACHINE_SERVER_KEY_PEM | sed 's/ /\n/g' >$machineConfigDir/server-key.pem
-echo $DOCKER_MACHINE_SERVER_PEM | sed 's/ /\n/g' >$machineConfigDir/server.pem
+echo -e $DOCKER_MACHINE_CA_PEM >$machineConfigDir/ca.pem
+echo -e $DOCKER_MACHINE_CERT_PEM >$machineConfigDir/cert.pem
+echo -e $DOCKER_MACHINE_CONFIG >$machineConfigDir/config.json
+echo -e $DOCKER_MACHINE_ID_RSA >$machineConfigDir/id_rsa
+echo -e $DOCKER_MACHINE_ID_RSA_PUB >$machineConfigDir/id_rsa.pub
+echo -e $DOCKER_MACHINE_KEY_PEM >$machineConfigDir/key.pem
+echo -e $DOCKER_MACHINE_SERVER_KEY_PEM >$machineConfigDir/server-key.pem
+echo -e $DOCKER_MACHINE_SERVER_PEM >$machineConfigDir/server.pem
