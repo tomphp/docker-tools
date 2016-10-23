@@ -1,34 +1,23 @@
 #!/bin/bash -ex
 
-function formatBlock {
-  block=$1
-
-  header=$(echo $1 | sed 's/^\(-----[A-Z ]*-----\).*$/\1/')
-  footer=$(echo $1 | sed 's/^.*\(-----[A-Z ]*-----\)$/\1/')
-  body=$(echo $1 | sed "s/^$header\(.*\)$footer$/\\1/")
-  body=$(echo $body | sed 's/ /\n/g')
-
-  echo "$header$body$footer"
-}
-
 machineName=$DOCKER_MACHINE_NAME
 
 certsDir="$HOME/.docker/machine/certs"
 machineConfigDir="$HOME/.docker/machine/machines/$machineName"
 
 mkdir -p $certsDir
-formatBlock "$DOCKER_MACHINE_CA_KEY_PEM" >$certsDir/ca-key.pem
-formatBlock "$DOCKER_MACHINE_CA_PEM" >$certsDir/ca.pem
-formatBlock "$DOCKER_MACHINE_CA_PEM" >$certsDir/ca.pem
-formatBlock "$DOCKER_MACHINE_CERT_PEM" >$certsDir/cert.pem
-formatBlock "$DOCKER_MACHINE_KEY_PEM" >$certsDir/key.pem
+echo $DOCKER_MACHINE_CA_KEY_PEM | sed 's/ /\n/g' >$certsDir/ca-key.pem
+echo $DOCKER_MACHINE_CA_PEM | sed 's/ /\n/g' >$certsDir/ca.pem
+echo $DOCKER_MACHINE_CA_PEM | sed 's/ /\n/g' >$certsDir/ca.pem
+echo $DOCKER_MACHINE_CERT_PEM | sed 's/ /\n/g' >$certsDir/cert.pem
+echo $DOCKER_MACHINE_KEY_PEM | sed 's/ /\n/g' >$certsDir/key.pem
 
 mkdir -p $machineConfigDir
-formatBlock "$DOCKER_MACHINE_CA_PEM" >$machineConfigDir/ca.pem
-formatBlock "$DOCKER_MACHINE_CERT_PEM" >$machineConfigDir/cert.pem
+echo $DOCKER_MACHINE_CA_PEM | sed 's/ /\n/g' >$machineConfigDir/ca.pem
+echo $DOCKER_MACHINE_CERT_PEM | sed 's/ /\n/g' >$machineConfigDir/cert.pem
 echo $DOCKER_MACHINE_CONFIG >$machineConfigDir/config.json
-formatBlock "$DOCKER_MACHINE_ID_RSA" >$machineConfigDir/id_rsa
+echo $DOCKER_MACHINE_ID_RSA | sed 's/ /\n/g' >$machineConfigDir/id_rsa
 echo $DOCKER_MACHINE_ID_RSA_PUB >$machineConfigDir/id_rsa.pub
-formatBlock "$DOCKER_MACHINE_KEY_PEM" >$machineConfigDir/key.pem
-formatBlock "$DOCKER_MACHINE_SERVER_KEY_PEM" >$machineConfigDir/server-key.pem
-formatBlock "$DOCKER_MACHINE_SERVER_PEM" >$machineConfigDir/server.pem
+echo $DOCKER_MACHINE_KEY_PEM | sed 's/ /\n/g' >$machineConfigDir/key.pem
+echo $DOCKER_MACHINE_SERVER_KEY_PEM | sed 's/ /\n/g' >$machineConfigDir/server-key.pem
+echo $DOCKER_MACHINE_SERVER_PEM | sed 's/ /\n/g' >$machineConfigDir/server.pem
